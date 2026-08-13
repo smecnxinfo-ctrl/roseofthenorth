@@ -1,0 +1,841 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rose of the North Biosciences Co., Ltd. — GACP Cannabis Cultivation, Lamphun</title>
+<meta name="description" content="Rose of the North Biosciences Co., Ltd. operates a GACP-certified cannabis cultivation farm in Pa Sang, Lamphun, Northern Thailand.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32.png">
+<link rel="icon" type="image/png" sizes="192x192" href="images/favicon-192.png">
+<link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
+<style>
+  :root{
+    --ink:#14170F;
+    --pine:#1C2E22;
+    --pine-2:#243A2B;
+    --pine-3:#2C4433;
+    --parchment:#F0EBDF;
+    --parchment-2:#E7E0CF;
+    --stone:#C6BFA9;
+    --rose:#7C2C3B;
+    --rose-2:#96384A;
+    --gold:#A9863F;
+    --sage:#7C8C6E;
+    --white:#FBF9F3;
+
+    --display: 'Fraunces', serif;
+    --body: 'Inter', sans-serif;
+    --mono: 'IBM Plex Mono', monospace;
+  }
+
+  *{margin:0;padding:0;box-sizing:border-box;}
+
+  html{scroll-behavior:smooth;}
+
+  body{
+    font-family:var(--body);
+    background:var(--parchment);
+    color:var(--ink);
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  img{display:block;max-width:100%;}
+
+  a{color:inherit;}
+
+  .wrap{
+    max-width:1180px;
+    margin:0 auto;
+    padding:0 32px;
+  }
+
+  /* ---------- NAV ---------- */
+  header{
+    position:fixed;
+    top:0;left:0;right:0;
+    z-index:100;
+    background:transparent;
+    transition:background .4s ease, box-shadow .4s ease, padding .3s ease;
+    padding:22px 0;
+  }
+  header.scrolled{
+    background:rgba(20,23,15,0.92);
+    backdrop-filter:blur(6px);
+    padding:14px 0;
+    box-shadow:0 1px 0 rgba(255,255,255,0.06);
+  }
+  nav{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+  }
+  .brand{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    text-decoration:none;
+    color:var(--white);
+  }
+  .brand-mark{
+    width:38px;height:38px;
+    border-radius:50%;
+    overflow:hidden;
+    flex:none;
+    background:var(--white);
+    border:1px solid rgba(255,255,255,0.35);
+  }
+  .brand-mark img{
+    width:100%;height:100%;object-fit:cover;
+    transform:scale(1.42);
+  }
+  .brand-word{
+    font-family:var(--display);
+    font-size:16.5px;
+    letter-spacing:0.04em;
+    font-weight:500;
+    line-height:1.15;
+  }
+  .brand-word small{
+    display:block;
+    font-family:var(--mono);
+    font-size:9.5px;
+    letter-spacing:0.16em;
+    color:var(--stone);
+    font-weight:400;
+    text-transform:uppercase;
+    margin-top:2px;
+  }
+  .nav-links{
+    display:flex;
+    gap:34px;
+    list-style:none;
+  }
+  .nav-links a{
+    color:var(--white);
+    text-decoration:none;
+    font-size:13.5px;
+    letter-spacing:0.03em;
+    opacity:0.82;
+    transition:opacity .2s ease;
+  }
+  .nav-links a:hover{opacity:1;}
+  .nav-cta{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    color:var(--white);
+    text-decoration:none;
+    font-family:var(--mono);
+    font-size:12px;
+    letter-spacing:0.04em;
+    border:1px solid rgba(255,255,255,0.35);
+    padding:8px 16px;
+    border-radius:2px;
+    transition:background .2s ease, border-color .2s ease;
+  }
+  .nav-cta:hover{background:rgba(255,255,255,0.08);border-color:rgba(255,255,255,0.6);}
+  .nav-toggle{display:none;}
+
+  /* ---------- HERO ---------- */
+  .hero{
+    position:relative;
+    min-height:100svh;
+    display:flex;
+    align-items:flex-end;
+    background:var(--pine);
+    overflow:hidden;
+  }
+  .hero-media{
+    position:absolute;
+    inset:0;
+  }
+  .hero-media img{
+    width:100%;height:100%;object-fit:cover;
+    opacity:0.55;
+  }
+  .hero-media::after{
+    content:"";
+    position:absolute;inset:0;
+    background:
+      linear-gradient(180deg, rgba(20,26,17,0.55) 0%, rgba(20,26,17,0.35) 30%, rgba(18,23,16,0.55) 65%, rgba(14,18,12,0.96) 100%),
+      linear-gradient(90deg, rgba(14,18,12,0.55) 0%, rgba(14,18,12,0) 45%);
+  }
+  .hero-inner{
+    position:relative;
+    z-index:2;
+    width:100%;
+    padding:220px 0 76px;
+  }
+  .hero-seal{
+    width:96px;height:96px;
+    border-radius:50%;
+    background:var(--white);
+    border:1px solid rgba(255,255,255,0.5);
+    overflow:hidden;
+    margin-bottom:30px;
+    box-shadow:0 10px 30px rgba(0,0,0,0.35);
+  }
+  .hero-seal img{width:100%;height:100%;object-fit:cover;transform:scale(1.42);}
+  .eyebrow{
+    font-family:var(--mono);
+    font-size:12px;
+    letter-spacing:0.22em;
+    text-transform:uppercase;
+    color:var(--gold);
+    margin-bottom:20px;
+    display:flex;
+    align-items:center;
+    gap:12px;
+  }
+  .eyebrow::before{
+    content:"";
+    width:28px;height:1px;
+    background:var(--gold);
+    display:inline-block;
+  }
+  .hero h1{
+    font-family:var(--display);
+    font-weight:400;
+    color:var(--white);
+    font-size:clamp(40px, 6.4vw, 84px);
+    line-height:1.02;
+    letter-spacing:-0.01em;
+    max-width:900px;
+  }
+  .hero h1 em{
+    font-style:italic;
+    font-weight:300;
+    color:var(--stone);
+  }
+  .hero-sub{
+    max-width:520px;
+    color:var(--parchment-2);
+    font-size:16.5px;
+    margin-top:26px;
+    line-height:1.7;
+  }
+  .hero-meta{
+    display:flex;
+    flex-wrap:wrap;
+    gap:36px;
+    margin-top:56px;
+    padding-top:26px;
+    border-top:1px solid rgba(255,255,255,0.18);
+    max-width:760px;
+  }
+  .hero-meta div{
+    font-family:var(--mono);
+    font-size:12px;
+    color:var(--stone);
+  }
+  .hero-meta div b{
+    display:block;
+    color:var(--white);
+    font-family:var(--body);
+    font-size:14.5px;
+    font-weight:500;
+    margin-bottom:5px;
+  }
+
+  /* ---------- SECTION SCAFFOLD ---------- */
+  section{padding:118px 0;}
+  .section-head{
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-end;
+    gap:40px;
+    margin-bottom:64px;
+    flex-wrap:wrap;
+  }
+  .section-tag{
+    font-family:var(--mono);
+    font-size:11.5px;
+    letter-spacing:0.2em;
+    text-transform:uppercase;
+    color:var(--rose);
+    display:block;
+    margin-bottom:16px;
+  }
+  .section-head h2{
+    font-family:var(--display);
+    font-weight:400;
+    font-size:clamp(30px,3.6vw,46px);
+    max-width:560px;
+    color:var(--ink);
+    line-height:1.08;
+  }
+  .section-head p{
+    max-width:340px;
+    color:#4A4636;
+    font-size:14.5px;
+    padding-bottom:6px;
+  }
+
+  /* ---------- ABOUT / RECORD ---------- */
+  .about{
+    background:var(--parchment);
+  }
+  .about-grid{
+    display:grid;
+    grid-template-columns:1.1fr 0.9fr;
+    gap:64px;
+    align-items:start;
+  }
+  .about-copy p{
+    font-size:16px;
+    color:#33321F;
+    margin-bottom:20px;
+    max-width:520px;
+  }
+  .about-copy p:first-of-type{
+    font-family:var(--display);
+    font-size:22px;
+    font-weight:400;
+    color:var(--pine);
+    line-height:1.45;
+  }
+
+  /* Signature element: the Farm Record card */
+  .record{
+    background:var(--white);
+    border:1px solid var(--stone);
+    position:relative;
+    padding:0;
+  }
+  .record::before{
+    content:"";
+    position:absolute;
+    inset:8px;
+    border:1px dashed var(--stone);
+    pointer-events:none;
+  }
+  .record-head{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:22px 26px 18px;
+  }
+  .record-head span{
+    font-family:var(--mono);
+    font-size:11px;
+    letter-spacing:0.16em;
+    text-transform:uppercase;
+    color:var(--sage);
+  }
+  .record-head .stamp{
+    font-family:var(--mono);
+    font-size:10.5px;
+    color:var(--rose);
+    border:1px solid var(--rose);
+    padding:4px 9px;
+    border-radius:2px;
+    letter-spacing:0.08em;
+  }
+  .record-title{
+    padding:0 26px 22px;
+    font-family:var(--display);
+    font-size:23px;
+    color:var(--ink);
+    border-bottom:1px solid var(--parchment-2);
+  }
+  .record-rows{
+    padding:6px 26px 26px;
+  }
+  .record-row{
+    display:grid;
+    grid-template-columns:120px 1fr;
+    gap:18px;
+    padding:14px 0;
+    border-bottom:1px solid var(--parchment-2);
+    font-size:13.5px;
+  }
+  .record-row:last-child{border-bottom:none;}
+  .record-row dt{
+    font-family:var(--mono);
+    font-size:10.5px;
+    letter-spacing:0.1em;
+    text-transform:uppercase;
+    color:var(--sage);
+    padding-top:2px;
+  }
+  .record-row dd{
+    color:var(--ink);
+    font-weight:500;
+  }
+  .record-row dd small{
+    display:block;
+    font-weight:400;
+    color:#6B6752;
+    font-size:12px;
+    margin-top:2px;
+  }
+
+  /* ---------- STANDARD ---------- */
+  .standard{
+    background:var(--pine);
+    color:var(--parchment);
+  }
+  .standard .section-tag{color:var(--gold);}
+  .standard .section-head h2{color:var(--white);}
+  .standard .section-head p{color:var(--stone);}
+  .standard-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:1px;
+    background:rgba(255,255,255,0.14);
+    border:1px solid rgba(255,255,255,0.14);
+  }
+  .standard-card{
+    background:var(--pine);
+    padding:38px 34px;
+  }
+  .standard-card .num{
+    font-family:var(--mono);
+    font-size:11px;
+    color:var(--gold);
+    letter-spacing:0.1em;
+    margin-bottom:22px;
+    display:block;
+  }
+  .standard-card h3{
+    font-family:var(--display);
+    font-weight:400;
+    font-size:22px;
+    color:var(--white);
+    margin-bottom:14px;
+  }
+  .standard-card p{
+    font-size:14px;
+    color:var(--stone);
+    line-height:1.75;
+  }
+
+  /* ---------- FACILITY GALLERY ---------- */
+  .facility{background:var(--parchment);}
+  .gallery{
+    display:grid;
+    grid-template-columns:repeat(6,1fr);
+    grid-auto-rows:180px;
+    gap:10px;
+  }
+  .gallery figure{
+    position:relative;
+    overflow:hidden;
+    background:var(--pine-2);
+  }
+  .gallery img{
+    width:100%;height:100%;object-fit:cover;
+    transition:transform .6s ease;
+  }
+  .gallery figure:hover img{transform:scale(1.06);}
+  .gallery figcaption{
+    position:absolute;
+    left:0;right:0;bottom:0;
+    padding:14px 16px;
+    background:linear-gradient(0deg, rgba(14,18,12,0.85), rgba(14,18,12,0));
+    color:var(--white);
+    font-family:var(--mono);
+    font-size:11px;
+    letter-spacing:0.04em;
+    opacity:0;
+    transform:translateY(6px);
+    transition:opacity .3s ease, transform .3s ease;
+  }
+  .gallery figure:hover figcaption{opacity:1;transform:translateY(0);}
+  .g-a{grid-column:span 3;grid-row:span 2;}
+  .g-b{grid-column:span 3;grid-row:span 1;}
+  .g-c{grid-column:span 3;grid-row:span 1;}
+  .g-d{grid-column:span 2;grid-row:span 2;}
+  .g-e{grid-column:span 2;grid-row:span 2;}
+  .g-f{grid-column:span 2;grid-row:span 2;}
+
+  /* ---------- LOCATION ---------- */
+  .location{background:var(--parchment-2);}
+  .loc-grid{
+    display:grid;
+    grid-template-columns:0.9fr 1.1fr;
+    gap:0;
+    border:1px solid var(--stone);
+  }
+  .loc-info{
+    background:var(--white);
+    padding:48px 44px;
+  }
+  .loc-info h3{
+    font-family:var(--display);
+    font-weight:400;
+    font-size:26px;
+    margin-bottom:22px;
+    color:var(--pine);
+  }
+  .loc-line{
+    display:flex;
+    gap:14px;
+    padding:16px 0;
+    border-top:1px solid var(--parchment-2);
+    font-size:14px;
+  }
+  .loc-line:first-of-type{border-top:none;}
+  .loc-line .k{
+    font-family:var(--mono);
+    font-size:10.5px;
+    letter-spacing:0.1em;
+    text-transform:uppercase;
+    color:var(--sage);
+    width:88px;
+    flex:none;
+    padding-top:2px;
+  }
+  .loc-line .v{color:var(--ink);font-weight:500;}
+  .loc-line a.v{color:var(--rose);text-decoration:none;border-bottom:1px solid rgba(124,44,59,0.35);}
+  .map-btn{
+    margin-top:30px;
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+    background:var(--pine);
+    color:var(--white);
+    text-decoration:none;
+    font-family:var(--mono);
+    font-size:12.5px;
+    letter-spacing:0.05em;
+    padding:14px 22px;
+    border-radius:2px;
+    transition:background .2s ease;
+  }
+  .map-btn:hover{background:var(--rose);}
+  .loc-map{
+    min-height:420px;
+    background:var(--stone);
+  }
+  .loc-map iframe{
+    width:100%;height:100%;
+    border:0;
+    filter:saturate(0.85) contrast(1.02);
+    display:block;
+    min-height:420px;
+  }
+
+  /* ---------- CONTACT / FOOTER ---------- */
+  footer{
+    background:var(--ink);
+    color:var(--parchment-2);
+    padding:90px 0 0;
+  }
+  .foot-grid{
+    display:grid;
+    grid-template-columns:1.3fr 1fr 1fr;
+    gap:50px;
+    padding-bottom:70px;
+    border-bottom:1px solid rgba(255,255,255,0.1);
+  }
+  .foot-brand{
+    display:flex;
+    align-items:center;
+    gap:14px;
+    margin-bottom:22px;
+  }
+  .foot-brand .brand-mark{width:44px;height:44px;}
+  .foot-brand .brand-word{color:var(--white);font-size:18px;}
+  .foot-col h4{
+    font-family:var(--mono);
+    font-size:11px;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    color:var(--gold);
+    margin-bottom:20px;
+  }
+  .foot-col p, .foot-col a{
+    display:block;
+    color:var(--stone);
+    text-decoration:none;
+    font-size:14px;
+    margin-bottom:10px;
+    line-height:1.6;
+  }
+  .foot-col a:hover{color:var(--white);}
+  .foot-bottom{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:26px 0;
+    font-family:var(--mono);
+    font-size:11.5px;
+    color:#6E7365;
+    flex-wrap:wrap;
+    gap:10px;
+  }
+
+  /* ---------- RESPONSIVE ---------- */
+  @media (max-width:920px){
+    .nav-links{display:none;}
+    .about-grid{grid-template-columns:1fr;}
+    .standard-grid{grid-template-columns:1fr;}
+    .loc-grid{grid-template-columns:1fr;}
+    .foot-grid{grid-template-columns:1fr;gap:36px;}
+    .gallery{grid-template-columns:repeat(2,1fr);grid-auto-rows:200px;}
+    .g-a,.g-b,.g-c,.g-d,.g-e,.g-f{grid-column:span 1;grid-row:span 1;}
+    .hero-inner{padding:160px 0 60px;}
+  }
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+    .gallery img, .gallery figcaption{transition:none;}
+  }
+  a:focus-visible, button:focus-visible{
+    outline:2px solid var(--gold);
+    outline-offset:3px;
+  }
+</style>
+</head>
+<body>
+
+<header id="site-header">
+  <div class="wrap">
+    <nav>
+      <a href="#top" class="brand">
+        <span class="brand-mark"><img src="images/logo.png" alt=""></span>
+        <span class="brand-word">Rose of the North<small>Biosciences Co., Ltd.</small></span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="#farm">Farm</a></li>
+        <li><a href="#standard">Standard</a></li>
+        <li><a href="#facility">Facility</a></li>
+        <li><a href="#location">Location</a></li>
+      </ul>
+      <a class="nav-cta" href="tel:+66990052219">099&nbsp;005&nbsp;2219</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- HERO -->
+  <section class="hero" style="padding:0;">
+    <div class="hero-media">
+      <img src="images/grow-room-teal.jpeg" alt="Rows of cannabis plants under LED grow lights inside the Rose of the North cultivation facility">
+    </div>
+    <div class="hero-inner wrap">
+      <div class="hero-seal"><img src="images/logo.png" alt="Rose of the North Biosciences seal"></div>
+      <span class="eyebrow">GACP-Certified Cultivation</span>
+      <h1>Cannabis, grown<br>to <em>pharmacopoeial</em><br>standard.</h1>
+      <p class="hero-sub">Rose of the North Biosciences Co., Ltd. operates a Good Agricultural and Collection Practices cannabis farm in Pa Sang, Lamphun, Northern Thailand.</p>
+      <div class="hero-meta">
+        <div><b>Pa Sang, Lamphun</b>Northern Thailand</div>
+        <div><b>GACP</b>Good Agricultural &amp; Collection Practices</div>
+        <div><b>099 005 2219</b>Farm office</div>
+        <div><b>roseofthenorthcnx@gmail.com</b>Email</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT / FARM RECORD -->
+  <section class="about" id="farm">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <span class="section-tag">01 — The Farm</span>
+          <h2>A controlled-environment farm in the Lamphun countryside.</h2>
+        </div>
+        <p>Every batch is grown, harvested, and recorded under a single, traceable standard — from clone to cure.</p>
+      </div>
+
+      <div class="about-grid">
+        <div class="about-copy">
+          <p>Set in Pa Sang district, Lamphun, our facility combines open-air cultivation beds with climate-controlled grow rooms, giving us year-round consistency without losing the character of the northern highlands.</p>
+          <p>Rose of the North Biosciences Co., Ltd. was built as a compliance-first operation: fenced and access-controlled grounds, dedicated propagation, vegetative and flowering rooms, and post-harvest handling that follows GACP documentation from seed to sale.</p>
+          <p>We work with processors and researchers looking for a dependable, well-documented Northern Thai supply — grown under a name, and a rose, that stands for where it's from.</p>
+        </div>
+
+        <div class="record">
+          <div class="record-head">
+            <span>Farm Record</span>
+            <span class="stamp">GACP</span>
+          </div>
+          <div class="record-title">Rose of the North Biosciences Co., Ltd.</div>
+          <dl class="record-rows">
+            <div class="record-row">
+              <dt>Site</dt>
+              <dd>287 Moo. 3, Tha Tum<br>Pa Sang, Lamphun 51120<small>Northern Thailand</small></dd>
+            </div>
+            <div class="record-row">
+              <dt>Operation</dt>
+              <dd>Cannabis cultivation<small>GACP-operated growing facility</small></dd>
+            </div>
+            <div class="record-row">
+              <dt>Contact</dt>
+              <dd>099 005 2219<small>roseofthenorthcnx@gmail.com</small></dd>
+            </div>
+            <div class="record-row">
+              <dt>Coordinates</dt>
+              <dd>Pinned on Google Maps<small>See Location, below</small></dd>
+            </div>
+          </dl>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STANDARD -->
+  <section class="standard" id="standard">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <span class="section-tag">02 — The Standard</span>
+          <h2>What GACP means on our farm.</h2>
+        </div>
+        <p>Good Agricultural and Collection Practices — the WHO-modelled framework for medicinal plant quality — applied to every stage of cultivation.</p>
+      </div>
+
+      <div class="standard-grid">
+        <div class="standard-card">
+          <span class="num">Cultivation</span>
+          <h3>Sourced &amp; grown</h3>
+          <p>Genetics, propagation, and growing conditions are logged from clone through to harvest, so every plant's history can be traced back to its mother stock.</p>
+        </div>
+        <div class="standard-card">
+          <span class="num">Collection</span>
+          <h3>Harvest &amp; handling</h3>
+          <p>Harvest timing, drying, and curing follow written procedures designed to protect cannabinoid and terpene quality batch after batch.</p>
+        </div>
+        <div class="standard-card">
+          <span class="num">Records</span>
+          <h3>Traceability</h3>
+          <p>Inputs, environmental data, and staff activity are recorded on-site, giving partners a documented chain of custody for every delivery.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FACILITY -->
+  <section class="facility" id="facility">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <span class="section-tag">03 — The Facility</span>
+          <h2>Inside the gate.</h2>
+        </div>
+        <p>A fenced, access-controlled compound of grow rooms, drying and handling space, and open cultivation beds.</p>
+      </div>
+
+      <div class="gallery">
+        <figure class="g-a">
+          <img src="images/grow-room-teal.jpeg" alt="Indoor grow room with rows of cannabis plants in teal pots under LED lighting">
+          <figcaption>Vegetative room — LED grow lights</figcaption>
+        </figure>
+        <figure class="g-b">
+          <img src="images/hydro-channel-1.jpeg" alt="Cannabis plants growing in a hydroponic channel">
+          <figcaption>Hydroponic cultivation channel</figcaption>
+        </figure>
+        <figure class="g-c">
+          <img src="images/mature-plants.jpeg" alt="Mature cannabis plants in large pots">
+          <figcaption>Mature flowering stock</figcaption>
+        </figure>
+        <figure class="g-d">
+          <img src="images/gate.jpeg" alt="Fenced entrance to the GACP-registered cannabis farm">
+          <figcaption>GACP-registered entrance</figcaption>
+        </figure>
+        <figure class="g-e">
+          <img src="images/facility-exterior.jpeg" alt="Exterior of the processing and grow room buildings">
+          <figcaption>Processing &amp; grow buildings</figcaption>
+        </figure>
+        <figure class="g-f">
+          <img src="images/courtyard.jpeg" alt="Sunlit courtyard between farm buildings">
+          <figcaption>Handling courtyard</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- LOCATION -->
+  <section class="location" id="location">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <span class="section-tag">04 — Location</span>
+          <h2>Pa Sang, Lamphun.</h2>
+        </div>
+        <p>25 minutes south of Chiang Mai, on the road through Pa Sang district.</p>
+      </div>
+
+      <div class="loc-grid">
+        <div class="loc-info">
+          <h3>Visit the farm</h3>
+          <div class="loc-line">
+            <span class="k">Address</span>
+            <span class="v">287 Moo. 3, Tha Tum, Pa Sang, Lamphun 51120, Thailand</span>
+          </div>
+          <div class="loc-line">
+            <span class="k">Phone</span>
+            <a class="v" href="tel:+66990052219">099 005 2219</a>
+          </div>
+          <div class="loc-line">
+            <span class="k">Email</span>
+            <a class="v" href="mailto:roseofthenorthcnx@gmail.com">roseofthenorthcnx@gmail.com</a>
+          </div>
+          <div class="loc-line">
+            <span class="k">Maps</span>
+            <a class="v" href="https://maps.app.goo.gl/QLpUUVgGromYraWB9?g_st=ic" target="_blank" rel="noopener">Open in Google Maps ↗</a>
+          </div>
+          <a class="map-btn" href="https://maps.app.goo.gl/QLpUUVgGromYraWB9?g_st=ic" target="_blank" rel="noopener">Get directions</a>
+        </div>
+        <div class="loc-map">
+          <iframe
+            src="https://maps.google.com/maps?q=287+Moo+3+Tha+Tum+Pa+Sang+Lamphun+51120+Thailand&z=15&output=embed"
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            title="Map of Rose of the North Biosciences farm location in Pa Sang, Lamphun">
+          </iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <div class="foot-brand">
+          <span class="brand-mark"><img src="images/logo.png" alt=""></span>
+          <span class="brand-word">Rose of the North Biosciences</span>
+        </div>
+        <p style="max-width:320px;">A GACP-operated cannabis cultivation farm in Pa Sang, Lamphun, Northern Thailand.</p>
+      </div>
+      <div class="foot-col">
+        <h4>Farm</h4>
+        <p>Rose of the North Biosciences Co., Ltd.</p>
+        <p>287 Moo. 3, Tha Tum<br>Pa Sang, Lamphun 51120</p>
+      </div>
+      <div class="foot-col">
+        <h4>Contact</h4>
+        <a href="tel:+66990052219">099 005 2219</a>
+        <a href="mailto:roseofthenorthcnx@gmail.com">roseofthenorthcnx@gmail.com</a>
+        <a href="https://maps.app.goo.gl/QLpUUVgGromYraWB9?g_st=ic" target="_blank" rel="noopener">Directions on Google Maps ↗</a>
+      </div>
+    </div>
+    <div class="foot-bottom wrap" style="padding-left:0;padding-right:0;">
+      <span>© <span id="year"></span> Rose of the North Biosciences Co., Ltd.</span>
+      <span>GACP-operated · Lamphun · Thailand</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+  const header = document.getElementById('site-header');
+  const onScroll = () => {
+    if (window.scrollY > 40) header.classList.add('scrolled');
+    else header.classList.remove('scrolled');
+  };
+  window.addEventListener('scroll', onScroll, { passive:true });
+  onScroll();
+</script>
+
+</body>
+</html>
